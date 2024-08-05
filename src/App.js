@@ -1,9 +1,61 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import ScrollReveal from 'scrollreveal';
 import './App.css'; // Make sure you have your CSS in this file
 import Contact from './components/Contact';
 import Gallary from './components/Gallary';
 
 function App() {
+
+  useEffect(() => {
+    const menuBtn = document.getElementById("menu-btn");
+    const navLinks = document.getElementById("nav-links");
+    const menuBtnIcon = menuBtn.querySelector("i");
+
+    const toggleMenu = () => {
+      navLinks.classList.toggle("open");
+      const isOpen = navLinks.classList.contains("open");
+      menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
+    };
+
+    const closeMenu = () => {
+      navLinks.classList.remove("open");
+      menuBtnIcon.setAttribute("class", "ri-menu-line");
+    };
+
+    menuBtn.addEventListener("click", toggleMenu);
+    navLinks.addEventListener("click", closeMenu);
+
+    return () => {
+      menuBtn.removeEventListener("click", toggleMenu);
+      navLinks.removeEventListener("click", closeMenu);
+    };
+  }, []);
+
+  useEffect(() => {
+    const scrollRevealOption = {
+      distance: "50px",
+      origin: "bottom",
+      duration: 1000,
+    };
+
+    // header container
+    ScrollReveal().reveal(".header__container p", { ...scrollRevealOption });
+    ScrollReveal().reveal(".header__container h1", { ...scrollRevealOption, delay: 500 });
+
+    // about container
+    ScrollReveal().reveal(".about__image img", { ...scrollRevealOption, origin: "left" });
+    ScrollReveal().reveal(".about__content .section__subheader", { ...scrollRevealOption, delay: 500 });
+    ScrollReveal().reveal(".about__content .section__header", { ...scrollRevealOption, delay: 1000 });
+    ScrollReveal().reveal(".about__content .section__description", { ...scrollRevealOption, delay: 1500 });
+    ScrollReveal().reveal(".about__btn", { ...scrollRevealOption, delay: 2000 });
+
+    // room container
+    ScrollReveal().reveal(".room__card", { ...scrollRevealOption, interval: 500 });
+
+    // service container
+    ScrollReveal().reveal(".service__list li", { ...scrollRevealOption, interval: 500, origin: "right" });
+  }, []);
+
   return (
     <div>
       <header className="header">
@@ -62,7 +114,6 @@ function App() {
             <a href="https://wa.link/at5ion">
               <button className="btn">BOOK NOW</button>
             </a>
-
           </div>
         </div>
       </section>
@@ -125,8 +176,20 @@ function App() {
                 24 Hours Room Service
               </li>
               <li>
-                <span><i className="ri-restaurant-2-fill"></i></span>
-                Restaurant
+                <span><i className="ri-wifi-line"></i></span>
+                Free Wifi Facility
+              </li>
+              <li>
+                <span><i className="ri-home-4-line"></i></span>
+                Family Rooms
+              </li>
+              <li>
+                <span><i className="ri-service-line"></i></span>
+                Friendly Environment
+              </li>
+              <li>
+                <span><i className="ri-truck-line"></i></span>
+                Pick & Drop Facility
               </li>
               <li>
                 <span><i className="ri-map-2-line"></i></span>
@@ -154,7 +217,7 @@ function App() {
 
       <Gallary/>
 
-     <Contact/>
+      <Contact/>
 
       <div className="map-container">
         <iframe
@@ -213,7 +276,7 @@ function App() {
             <div className="footer__socials">
               <a href="#"><img src="assets/facebook.png" alt="facebook" /></a>
               <a href="https://www.instagram.com/kingsukhguesthouse/" target="_blank" rel="noopener noreferrer"><img src="assets/instagram.png" alt="instagram" /></a>
-              <a href="#"><img ur="./assets/youtube.png" alt="youtube" /></a>
+              <a href="#"><img src="assets/youtube.png" alt="youtube" /></a>
               <a href="#"><img src="assets/twitter.png" alt="twitter" /></a>
             </div>
           </div>
