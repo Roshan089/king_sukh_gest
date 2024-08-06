@@ -10,7 +10,7 @@ import img from "../assets/out.jpg"
 import img1 from "../assets/small.jpg"
 import img2 from "../assets/large.jpg"
 import Banner from './counting';
-import SparkleButton from './button/Button';
+import Button from './button/Button';
 
 const Home = () => {
 
@@ -74,7 +74,7 @@ const Home = () => {
         <div className="booking__form">
           <div className="input__group input__btn">
             <a href="https://wa.link/at5ion">
-            <SparkleButton/>
+            <Button/>
             </a>
           </div>
         </div>
