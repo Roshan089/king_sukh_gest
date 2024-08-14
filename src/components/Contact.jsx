@@ -7,6 +7,7 @@ import { IoCall } from "react-icons/io5";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
+import SocialMedia from '../components/social media/social_media';
 
 
 
@@ -36,12 +37,10 @@ const Contact = () => {
                 </li>
               </ul>
             </div>
-            <ul className="sci">
-                
-              <li><FaFacebook /></li>
-                      <li>< FaTwitter/></li>
-                      <li><FaInstagramSquare /></li>
-            </ul>
+           
+          <SocialMedia/>
+
+
           </div>
           <div className="contactForm1">
             <h2>Send a Message</h2>

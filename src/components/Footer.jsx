@@ -1,4 +1,5 @@
 import React from 'react'
+import SocialMedia from './social media/social_media'
 
 const Footer = () => {
   return (
@@ -44,10 +45,7 @@ const Footer = () => {
               <li><a href="tel:+919007062180">+91 9007062180</a></li>
             </ul>
             <div className="footer__socials">
-              <a href="#"><img src="assets/facebook.png" alt="facebook" /></a>
-              <a href="https://www.instagram.com/kingsukhguesthouse/" target="_blank" rel="noopener noreferrer"><img src="assets/instagram.png" alt="instagram" /></a>
-              <a href="#"><img src="assets/youtube.png" alt="youtube" /></a>
-              <a href="#"><img src="assets/twitter.png" alt="twitter" /></a>
+             <SocialMedia/>
             </div>
           </div>
         </div>

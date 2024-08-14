@@ -4,7 +4,7 @@ import './button.css'; // Import the CSS file for styles
 const Button = () => {
   return (
     
-<button> Click me!
+<button className='input__btn '> BOOK NOW
 </button>
   );
 };

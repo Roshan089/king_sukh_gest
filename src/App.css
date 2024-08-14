@@ -188,6 +188,12 @@ nav {
   padding-block: 0;
 }
 
+@media (max-width: 200px) {
+    .booking__container .input__btn {
+        display: none; /* Hide the button on mobile view */
+    }
+}
+
 .booking__form {
   padding: 2rem;
   display: flex;

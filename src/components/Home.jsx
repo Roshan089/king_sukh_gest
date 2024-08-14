@@ -1,43 +1,48 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import ScrollReveal from 'scrollreveal';
-import '../App.css'; // Make sure you have your CSS in this file
+import '../App.css'; // Ensure this file exists and has relevant styles
 import Contact from './Contact';
-import Gallary from './Gallary';
 import Footer from './Footer';
 import Map from './Map';
 import Slider from './slider';
-import img from "../assets/out.jpg"
-import img1 from "../assets/small.jpg"
-import img2 from "../assets/large.jpg"
+import img from "../assets/out.jpg";
+import img1 from "../assets/small.jpg";
+import img2 from "../assets/large.jpg";
 import Banner from './counting';
 import Button from './button/Button';
 
 const Home = () => {
 
-
   useEffect(() => {
     const menuBtn = document.getElementById("menu-btn");
     const navLinks = document.getElementById("nav-links");
-    const menuBtnIcon = menuBtn.querySelector("i");
+    
+    if (menuBtn && navLinks) {
+      const menuBtnIcon = menuBtn.querySelector("i");
 
-    const toggleMenu = () => {
-      navLinks.classList.toggle("open");
-      const isOpen = navLinks.classList.contains("open");
-      menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
-    };
+      const toggleMenu = () => {
+        navLinks.classList.toggle("open");
+        const isOpen = navLinks.classList.contains("open");
+        if (menuBtnIcon) {
+          menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
+        }
+      };
 
-    const closeMenu = () => {
-      navLinks.classList.remove("open");
-      menuBtnIcon.setAttribute("class", "ri-menu-line");
-    };
+      const closeMenu = () => {
+        navLinks.classList.remove("open");
+        if (menuBtnIcon) {
+          menuBtnIcon.setAttribute("class", "ri-menu-line");
+        }
+      };
 
-    menuBtn.addEventListener("click", toggleMenu);
-    navLinks.addEventListener("click", closeMenu);
+      menuBtn.addEventListener("click", toggleMenu);
+      navLinks.addEventListener("click", closeMenu);
 
-    return () => {
-      menuBtn.removeEventListener("click", toggleMenu);
-      navLinks.removeEventListener("click", closeMenu);
-    };
+      return () => {
+        menuBtn.removeEventListener("click", toggleMenu);
+        navLinks.removeEventListener("click", closeMenu);
+      };
+    }
   }, []);
 
   useEffect(() => {
@@ -47,41 +52,32 @@ const Home = () => {
       duration: 1000,
     };
 
-    // header container
     ScrollReveal().reveal(".header__container p", { ...scrollRevealOption });
     ScrollReveal().reveal(".header__container h1", { ...scrollRevealOption, delay: 500 });
 
-    // about container
     ScrollReveal().reveal(".about__image img", { ...scrollRevealOption, origin: "left" });
     ScrollReveal().reveal(".about__content .section__subheader", { ...scrollRevealOption, delay: 500 });
     ScrollReveal().reveal(".about__content .section__header", { ...scrollRevealOption, delay: 1000 });
     ScrollReveal().reveal(".about__content .section__description", { ...scrollRevealOption, delay: 1500 });
     ScrollReveal().reveal(".about__btn", { ...scrollRevealOption, delay: 2000 });
 
-    // room container
     ScrollReveal().reveal(".room__card", { ...scrollRevealOption, interval: 500 });
 
-    // service container
     ScrollReveal().reveal(".service__list li", { ...scrollRevealOption, interval: 500, origin: "right" });
   }, []);
 
   return (
     <div>
-     
-
-          
       <section className="section__container booking__container">
         <div className="booking__form">
           <div className="input__group input__btn">
             <a href="https://wa.link/at5ion">
-            <Button/>
+              <Button />
             </a>
           </div>
         </div>
-          </section>
-          
+      </section>
 
-          <Slider/>
 
       <section className="section__container about__container" id="about">
         <div className="about__image">
@@ -101,19 +97,7 @@ const Home = () => {
             </a>
           </div>
         </div>
-          </section>
-          
-
-
-
-
-
-
-
-
-
-
-          
+      </section>
 
       <section className="section__container room__container" id="rooms">
         <p className="section__subheader">OUR LIVING ROOM</p>
@@ -197,19 +181,19 @@ const Home = () => {
         </div>
       </section>
 
-   <Banner/>
+      <Banner />
 
       <br /><br />
 
-      <Gallary/>
+      <Slider/>
 
-      <Contact/>
+      <Contact />
 
-     <Map/>
+      <Map />
 
-      <Footer/>
+      <Footer />
     </div>
   );
 }
 
-export default Home
+export default Home;

@@ -1,65 +1,70 @@
-import React, { useEffect } from 'react'
-import { TiThMenu } from "react-icons/ti";
-
+import React, { useState, useRef, useEffect } from 'react';
+import { TiThMenu, TiTimes } from "react-icons/ti";
+import Button from './button/Button';
 
 const Header = () => {
-    useEffect(() => {
-    const menuBtn = document.getElementById("menu-btn");
-    const navLinks = document.getElementById("nav-links");
-    const menuBtnIcon = menuBtn.querySelector("i");
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navLinksRef = useRef(null);
 
-    const toggleMenu = () => {
-      navLinks.classList.toggle("open");
-      const isOpen = navLinks.classList.contains("open");
-      menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
+  // Toggle menu open state
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  // Close menu when clicking outside
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
+  useEffect(() => {
+    // Close menu when clicking outside of the nav links
+    const handleClickOutside = (event) => {
+      if (navLinksRef.current && !navLinksRef.current.contains(event.target)) {
+        closeMenu();
+      }
     };
 
-    const closeMenu = () => {
-      navLinks.classList.remove("open");
-      menuBtnIcon.setAttribute("class", "ri-menu-line");
-    };
-
-    menuBtn.addEventListener("click", toggleMenu);
-    navLinks.addEventListener("click", closeMenu);
-
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      menuBtn.removeEventListener("click", toggleMenu);
-      navLinks.removeEventListener("click", closeMenu);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
   return (
     <header className="header">
-        <nav>
-          <div className="nav__bar">
-            <div className="logo">
-              <a href="https://wa.link/at5ion">
-                <span style={{ color: 'aliceblue' }}>Kingsukh Guest House</span>
-              </a>
-            </div>
-                  <div className="nav__menu__btn" id="menu-btn">
-                      <TiThMenu className="ri-menu-line" />
-
-             
-            </div>
+      <nav>
+        <div className="nav__bar">
+          <div className="logo">
+            <a href="https://wa.link/at5ion">
+              <span style={{ color: 'aliceblue' }}>Kingsukh Guest House</span>
+            </a>
           </div>
-          <ul className="nav__links" id="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#service">Services</a></li>
-            <li><a href="#rooms">Rooms</a></li>
-            <li><a href="#gallary">Gallary</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-          <a href="https://wa.link/at5ion">
-            <button className="btn nav__btn">BOOK NOW</button>
-          </a>
-        </nav>
-        <div className="section__container header__container" id="home">
-          <p>Simple - Unique - Friendly</p>
-          <h1>Make Yourself At Home<br />In Our <span>Guest House</span>.</h1>
+          <div className="nav__menu__btn" onClick={toggleMenu}>
+            {menuOpen ? <TiTimes /> : <TiThMenu />}
+          </div>
         </div>
-      </header>
-  )
-}
+        <ul
+          className={`nav__links ${menuOpen ? 'open' : ''}`}
+          ref={navLinksRef}
+          onClick={closeMenu}
+        >
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#service">Services</a></li>
+          <li><a href="#rooms">Rooms</a></li>
+          <li><a href="#gallary">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a className='hed_btn' href="https://wa.link/at5ion">
+          <Button />
+        </a>
+      </nav>
+      <div className="section__container header__container" id="home">
+        <p>Simple - Unique - Friendly</p>
+        <h1>Make Yourself At Home<br />In Our <span>Guest House</span>.</h1>
+      </div>
+    </header>
+  );
+};
 
-export default Header
+export default Header;
