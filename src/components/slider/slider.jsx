@@ -6,15 +6,11 @@ import img4 from '../assets/palash.webp'
 import img5 from '../assets/small.jpg'
 import img6 from '../assets/baranti.webp'
 import img7 from '../assets/recep.jpg'
-import img8 from '../assets/flower.jpg'
-import img9 from '../assets/room1.jpg'
-import img10 from '../assets/mithonDam.webp'
 import './Slider.scss';
 
 const Slider = () => {
   return (
     <div className="container" id="gallary">
-        <p class="section__subheader" style="text-align: center;">GALLARY</p> 
       <div className="slider">
         <h3>gallary</h3>
         <input className="slider-target" type="radio" id="slide-0" name="slider" />
