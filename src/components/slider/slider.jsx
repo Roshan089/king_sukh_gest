@@ -14,7 +14,9 @@ import './Slider.scss';
 const Slider = () => {
   return (
     <div className="container" id="gallary">
+        <p class="section__subheader" style="text-align: center;">GALLARY</p> 
       <div className="slider">
+        <h3>gallary</h3>
         <input className="slider-target" type="radio" id="slide-0" name="slider" />
         <input className="slider-target" type="radio" id="slide-1" name="slider" />
         <input className="slider-target" type="radio" id="slide-2" name="slider" />
@@ -78,15 +80,7 @@ const sliderItems = [
   {
     image: img7,
   },
-  {
-    image: img8,
-  },
-  {
-    image: img9,
-  },
-  {
-    image: img10,
-  },
+ 
 ];
 
 export default Slider;
