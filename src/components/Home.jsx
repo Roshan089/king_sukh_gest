@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import ScrollReveal from 'scrollreveal';
 import '../App.css'; // Ensure this file exists and has relevant styles
-import Contact from './Contact';
-import Footer from './Footer';
+import Contact from './contact/Contact';
+import Footer from './footer/Footer';
 import Map from './Map';
-import Slider from './slider';
+import Slider from './slider/slider';
 import img from "../assets/out.jpg";
 import img1 from "../assets/small.jpg";
 import img2 from "../assets/large.jpg";

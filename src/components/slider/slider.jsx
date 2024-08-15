@@ -13,7 +13,7 @@ import './Slider.scss';
 
 const Slider = () => {
   return (
-    <div className="container">
+    <div className="container" id="gallary">
       <div className="slider">
         <input className="slider-target" type="radio" id="slide-0" name="slider" />
         <input className="slider-target" type="radio" id="slide-1" name="slider" />

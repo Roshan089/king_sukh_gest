@@ -3,7 +3,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
-import Contact from './components/Contact';
+import Contact from './components/contact/Contact';
 import Header from './components/Header';
 
 const App = () => {

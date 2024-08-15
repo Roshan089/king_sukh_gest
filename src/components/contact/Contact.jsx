@@ -1,13 +1,9 @@
 import React from 'react'
 import './contact.css'
-import '../App.css'
 import { FaLocationPin } from "react-icons/fa6";
 import { MdMail } from "react-icons/md";
 import { IoCall } from "react-icons/io5";
-import { FaInstagramSquare } from "react-icons/fa";
-import { FaFacebook } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import SocialMedia from '../components/social media/social_media';
+import SocialMedia from '../social media/social_media';
 
 
 
