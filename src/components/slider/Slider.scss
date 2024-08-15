@@ -2,6 +2,27 @@
 
 
 
+.container h3 {
+  margin-bottom: 0.9rem;
+  position: relative;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: var(--text-dark);
+}
+
+.container h3::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  transform: translate(1rem, -50%);
+  height: 2px;
+  width: 4rem;
+  background-color: var(--primary-color);
+}
+
+.slider {
+  text-align: center;
+}
 
 
 .container {
@@ -9,21 +30,19 @@
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  /* Adjust padding as needed */
   box-sizing: border-box;
    background-color: rgba(1.25, 1.23, 1.23, 0.1);
    border-radius: 20%;
-   box-shadow: 1px 4px 3px  rgba(1.25, 1.23, 1.23, 0.1); /* Add shadow */
+   box-shadow: 1px 4px 3px  rgba(1.25, 1.23, 1.23, 0.1); 
    
 }
 
-/* Media query for smaller screens */
 @media (max-width: 768px) {
   .container {
-    height: auto; /* Allow height to adjust based on content */
+    height: auto; 
     padding: 10px;
     padding-top: 150px;
-    padding-bottom: -80px; /* Adjust padding for smaller screens */
+    padding-bottom: -80px; 
   }
 }
 

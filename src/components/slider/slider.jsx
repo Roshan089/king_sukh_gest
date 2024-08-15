@@ -12,7 +12,7 @@ const Slider = () => {
   return (
     <div className="container" id="gallary">
       <div className="slider">
-        <h3>gallary</h3>
+        <h3>GALLARY</h3>
         <input className="slider-target" type="radio" id="slide-0" name="slider" />
         <input className="slider-target" type="radio" id="slide-1" name="slider" />
         <input className="slider-target" type="radio" id="slide-2" name="slider" />
