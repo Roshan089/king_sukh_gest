@@ -65,9 +65,17 @@
   font-weight: 500;
   color: var(--white);
   background-color: var(--primary-color);
-  border-radius: 5px;
+  border-radius: 15px;
   cursor: pointer;
   transition: 0.3s;
+}
+
+@media (max-width: 767px) {
+ .btn {
+    display: none;
+  }
+
+  
 }
 
 .btn:hover {

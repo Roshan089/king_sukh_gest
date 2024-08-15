@@ -1,5 +1,6 @@
 import React from 'react'
 import img from "../assets/out.jpg";
+import Button from './button/Button';
 
 
 const About = () => {
@@ -21,8 +22,8 @@ const About = () => {
     </div>
     <div className="about__btn">
       <a href="https://wa.link/at5ion">
-        <button className="btn">BOOK NOW</button>
-      </a>
+<Button/>
+                  </a>
     </div>
   </div>
 </section>

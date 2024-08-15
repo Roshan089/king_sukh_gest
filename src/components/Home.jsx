@@ -5,8 +5,6 @@ import Contact from './contact/Contact';
 import Footer from './footer/Footer';
 import Map from './Map';
 import Slider from './slider/slider';
-import img1 from "../assets/small.jpg";
-import img2 from "../assets/large.jpg";
 import Banner from './counting';
 import Button from './button/Button';
 import   Room  from "./Room"
@@ -69,7 +67,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div  id='home'>
       <section className="section__container booking__container">
         <div className="booking__form">
           <div className="input__group input__btn">

@@ -56,7 +56,7 @@ const Header = () => {
           <li><a href="#contact">Contact</a></li>
         </ul>
         <a className='hed_btn' href="https://wa.link/at5ion">
-          <Button />
+          <button className="btn">BOOK NOW</button>
         </a>
       </nav>
       <div className="section__container header__container" id="home">
